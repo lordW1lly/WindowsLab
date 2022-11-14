@@ -25,7 +25,7 @@ namespace WindowsLab
         private void bttnValidar_Click(object sender, EventArgs e)
         {
             string nombre = txtNombre.Text;
-            Boolean masculino = chkMasculino.Checked;
+            Boolean masculino = chkMasculino.Checked; 
             Boolean fem = chkFemenino.Checked;
             Boolean adm = chkAdmin.Checked;
             Boolean estandar = chkEstandar.Checked;
@@ -34,9 +34,15 @@ namespace WindowsLab
             if(nombre == "")
             {
                 MessageBox.Show("Por favor, ingrese un nombre");
-            } else if(nombre == "Seba" && masculino == true && adm == true)
+            } else if(nombre == "Seba" && masculino == true && fem == false && adm == true && adm == false && invitado == false)
             {
-                MessageBox.Show("Bienvenido, " + nombre + ", tu genero es: " + masculino + ", tu rol es: " + adm);
+                MessageBox.Show("Bienvenido, " + nombre + ", tu genero es: " + chkMasculino.Text + ", tu rol es: " + chkAdmin.Text);
+            } else if(masculino == false && fem == false)
+            {
+                MessageBox.Show("No puedes dejar ambas opciones desmarcadas");
+            } else if(adm == true && estandar == true | invitado == true )
+            {
+                MessageBox.Show("Solo puede haber una opcion de rol marcada");
             }
         }
     }
